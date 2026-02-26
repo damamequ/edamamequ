@@ -2,32 +2,39 @@ export default function Products({ data }) {
     if (!data) return null
 
     return (
-        <section className="min-h-screen flex items-center py-24 bg-[var(--color-background-light)]" id="products">
-            <div className="max-w-7xl mx-auto px-6">
+        <section className="min-h-screen flex items-center py-24 bg-[#e8f5e9]" id="products">
+            <div className="max-w-7xl mx-auto px-6 w-full">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <h2 className="text-4xl font-bold mb-4">{data.heading}</h2>
                     <p className="text-[var(--color-primary)] font-bold uppercase tracking-[0.2em] text-xs mb-4">{data.badge}</p>
-                    <p className="text-[var(--color-accent-dark)]/60">{data.description}</p>
+                    <p className="text-[var(--color-accent-dark)]/70 text-lg">{data.description}</p>
                 </div>
 
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden max-w-2xl mx-auto border border-[var(--color-primary)]/10">
-                    <table className="w-full text-left">
-                        <thead className="bg-[var(--color-primary)]/5">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[2.5rem] shadow-xl overflow-hidden max-w-3xl mx-auto border border-white/50">
+                    <table className="w-full text-left border-collapse">
+                        <thead className="bg-[#dcfce7]">
                             <tr>
-                                <th className="py-6 px-8 text-xl font-bold text-[var(--color-accent-dark)]">Ukuran Kemasan</th>
-                                <th className="py-6 px-8 text-xl font-bold text-[var(--color-accent-dark)] text-right">Harga</th>
+                                <th className="py-6 px-8 md:px-12 text-sm md:text-lg font-extrabold text-[#166534] uppercase tracking-wider border-b-2 border-[#bbf7d0]">Berat Kemasan</th>
+                                <th className="py-6 px-8 md:px-12 text-sm md:text-lg font-extrabold text-[#166534] uppercase tracking-wider text-right border-b-2 border-[#bbf7d0]">Harga</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-[var(--color-primary)]/5">
+                        <tbody className="divide-y divide-gray-100">
                             {data.items?.map((item, i) => (
                                 <tr
                                     key={i}
-                                    className={`hover:bg-[var(--color-primary)]/5 transition-colors ${item.bestSeller ? 'bg-[var(--color-primary)]/5' : ''}`}
+                                    className={`hover:bg-[#f0fdf4] transition-colors duration-300 ${item.bestSeller ? 'bg-[#f0fdf4]' : ''}`}
                                 >
-                                    <td className={`py-6 px-8 text-lg ${item.bestSeller ? 'font-bold text-[var(--color-accent-dark)]' : 'font-medium text-[var(--color-accent-dark)]/80'}`}>
-                                        {item.name}
+                                    <td className={`py-6 px-8 md:px-12 text-lg md:text-xl ${item.bestSeller ? 'font-extrabold text-[#166534]' : 'font-semibold text-gray-700'}`}>
+                                        <div className="flex items-center gap-3">
+                                            {item.name}
+                                            {item.bestSeller && (
+                                                <span className="text-[10px] bg-[#166534] text-white px-3 py-1 rounded-full uppercase tracking-wider font-bold shrink-0 hidden sm:inline-block">
+                                                    Terlaris
+                                                </span>
+                                            )}
+                                        </div>
                                     </td>
-                                    <td className="py-6 px-8 text-lg font-bold text-[var(--color-primary)] text-right">
+                                    <td className="py-6 px-8 md:px-12 text-xl md:text-2xl font-black text-[#15803d] text-right">
                                         {item.price}
                                     </td>
                                 </tr>

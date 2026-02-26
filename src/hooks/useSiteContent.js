@@ -28,7 +28,11 @@ const defaultContent = {
         description: "Kedelai Sultan segar berkualitas premium langsung dari petani lokal Jogja.",
         items: [
             { name: "500 Gram", price: "Rp 15.000", bestSeller: false },
-            { name: "1 Kilogram (Best Seller)", price: "Rp 28.000", bestSeller: true }
+            { name: "1 Kilogram", price: "Rp 28.000", bestSeller: true },
+            { name: "2 Kilogram", price: "Rp 55.000", bestSeller: false },
+            { name: "3 Kilogram", price: "Rp 80.000", bestSeller: false },
+            { name: "4 Kilogram", price: "Rp 105.000", bestSeller: false },
+            { name: "5 Kilogram", price: "Rp 130.000", bestSeller: false }
         ],
         ctaHeading: "Siap merasakan kebaikannya?",
         ctaDescription: "Cukup ketuk tombol di bawah untuk mengirim pesan ke tim kami dan memesan langsung via WhatsApp.",
@@ -61,16 +65,16 @@ const defaultContent = {
         ]
     },
     gallery: {
-        videoUrl: "/videos/merapi_background.mp4",
+        videoUrl: "",
         images: [
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDfWSuWt9CNLLDlZTvMoAj8d_frGnsVy82v80lOyIGARKsuvNOxC4zod-bS0xhjtDYb15Dw2X98ZCLiSeg6uls8jLmlUNHJqWDviR0XgBWg-DE2w6JM8ceKwO16z-tsIaHInCWCad8NZTk0BKdwZ2c7gJtq41QATsO0w-Z-W5dXUtmpMSu2_Rr6RHI61fHR4vOy6OBihsRUpE0hcHNmulZA-KX9tSoBr5RvoFW12cJ-j8J5-YjqydczkUglcPdk4yOSjCHPSMY26ZHm",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuA9AaN5S0O6ghDhkNLiORf_LtK0fSGFEHWwi3FtSV3pOzJi_JWCIJ5k7xZ8XTb7M7DygUXk0kruZEpFd3-ikzYgdVadXAvArF7EI67bdzqQjZDSkgExChl9Y_1RWyCysyHKn-SSdZUv_vBKb19gTnOiypDpKme_Hz_0iNGmWf3Q-ZzkTKFIen5QqhpOmp-PkTBl1aE2KKMK1Oe7BpQQHWec7i2KwKBbMsOz4uOF45cOepXmIRpdGtVmYN55tKVVRMWR0-FLg6V04VDO",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAGyWoeb3rIc18wINuXtrdhFRHiHHmqrmWEiP4BgANGpA4V5DD034HM1N2kcMOggMnsPblyZWQ6BawPWvvXhk_W-g_9LZ3p_Ce66bB74-eM4gxsonH7t12Xcu0HtHg19C3wVodUnT68bbZW_ZSte2mCIzwPzOm9Cq7eF4oVKkrYW17R1F94hJFHK43etm5t0lrAm6dN54OB1sSm8D6GvyxQeXsO-ZrlalhXgVkuLb67jFjB-Rn0HFCB544Rzvgt3LPgaRFpnA5E-z7r",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAiZiIr-f9YV-Y1Tb9YpXHv0sRCYbrusecw3uYkLm-nEWXHoSecfyamgKTKk2cUbdthU7l2B67CGmnl-Jk1jKJtDvZU7EkwWb3Lw5ThBr5gG81PecoF1OmYee6sZA2vu6pBy84aLbky7ne5kYPWVycIyLWRV2GnBukZs85510XMHXRwBlgLRs5gwXUG5j7vZI7O90N_Nf42wwZI0RKjz6xIOiDGHAIwPN21CpXwK-8qFg-N3x8ng0ZmgH_xX1vvjRgiVzm6vqJqXnkU",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuBTZg-g8XoI70YaLBuBvgfx2Be0IvGk2H3u4BJ0SMwvYvPeXmtqDbb9LltZXSGzi8FisFT8G0LNvqWtp54GPyi9msd3yYtcG9qErb73xG6LHYMY9dRGdob-rakKjnjDX2qoACdZcNIQugAmjLzt9SLpeTmisjwFLIwkHUfQWeuPddL9fNVXUIW4pI47R8Wa-IYHOR0wIWxiyG_9DT5OCZqYw4ra4Jzm3dUz6zfTmlUjPWmDeWHTj8oqdTSi3IpNlItR7I0RRXF_iUwF",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDHZ012QXpGNExkREIYcpA7LhAkfYCBKwwiuLRj8c9_-9WhkGkq72JhaTis191A22yAMEhdu9ALnP8lqYfvwO-91PtAsKsr5Mj5hT3tNu_cO30dmIosEdc73eXM34M8YbalSo1__z82uY06oKDh0sEz3kvVPbV8YP-fMgBPVmBSY173cqjQ4HV5z8_dRRj58Iu0X1VpNacyQ0KpQgyTUdMbayP9bX0QCnS8CTROcSJHx7R6CpGeIXeNMXZZa2KaB-gtgiIizlwtdhbu",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDSExF8-_egRfa_8qImb-1gbzhIcrAuYPWLgTEaDSfXlTsQ2zdVjsR2bXK2FULtGFbcGKXXHgoph_k94KpVShjvCISn3PHMhkXKacdlkBGtnzte-q1JxZ2wiYA22brizmhcmRWGlhUp2v9-eL0b4Kdltkub_Vxb_2UwgeljvwMKlZas4HJlRPbnEXx9h_XPg9YViaIIdPkwPyrb_635gv7PzRAQRzjOngf6u3yxw0zfJERNNDdsX2JBGEs2ZajV2CZZeK7EYX1srz1-",
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDxbbr5EpQ95SM7qehG1citN-IU0x1e8pPXZO_SP61wrWWZ2YBVSBDgBqoSqMCyX4wVp2UmMZQtF09zVSbVH_oU_c8hyorLI2mYyxej1X_YS390xJfzeuboxvNjCdF6RkqyxSMmQshjHJ09tDXFJws2eLbyS432XrNVAbV_HuOm8X1Hn5P8nohWrugONNz7Gxv5m1wGpasY7FX8L2_Zdqc45ThOyOJ0F8uKNGMCug6MgkOpIyBF6FjZ1pnNBN0e8fZnI4KefpqkWP2O"
+            "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200",
+            "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=1200",
+            "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200",
+            "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1200",
+            "https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=1200",
+            "https://images.unsplash.com/photo-1628187886470-394dd546ec84?q=80&w=1200",
+            "https://images.unsplash.com/photo-1592394533824-9440e5d68530?q=80&w=1200",
+            "https://images.unsplash.com/photo-1615486171448-4fd3bcfedbeb?q=80&w=1200"
         ]
     },
     contact: {
@@ -111,6 +115,31 @@ const defaultContent = {
         backgroundLight: "#f6f8f6",
         backgroundDark: "#132210",
         accentDark: "#0d1a0a"
+    },
+    valueProps: {
+        heading: "Kenapa Memilih EdamameQu?",
+        items: [
+            {
+                icon: "verified_user",
+                title: "Kualitas Seleksi Sultan",
+                description: "Hanya polong terbaik yang lolos seleksi ketat kami, menjamin kepuasan di setiap gigitan."
+            },
+            {
+                icon: "eco",
+                title: "Kesegaran Kebun Jogja",
+                description: "Langsung dari petani lokal, dipanen pada puncak kematangan untuk mengunci rasa manis alami."
+            },
+            {
+                icon: "health_and_safety",
+                title: "Nutrisi Tanpa Kompromi",
+                description: "Bebas pengawet dan Non-GMO. Camilan mewah yang mencintai tubuh Anda."
+            },
+            {
+                icon: "schedule",
+                title: "Siap Saji, Kapan Saja",
+                description: "Kemudahan premium untuk gaya hidup modern Anda yang aktif dan sehat."
+            }
+        ]
     }
 }
 

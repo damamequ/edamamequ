@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
+import ValueProps from '../components/ValueProps'
 import Story from '../components/Story'
 import Products from '../components/Products'
 import Nutrition from '../components/Nutrition'
@@ -39,6 +40,7 @@ export default function LandingPage() {
             <Navbar data={content.navbar} />
             <main>
                 <Hero data={content.hero} />
+                <ValueProps data={content.valueProps} />
                 <Story data={content.story} />
                 <Products data={content.products} />
                 <Nutrition data={content.nutrition} />

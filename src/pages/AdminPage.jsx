@@ -111,6 +111,44 @@ function HeroEditor({ data, onChange }) {
     )
 }
 
+function ValuePropsEditor({ data, onChange }) {
+    const update = (key, val) => onChange({ ...data, [key]: val })
+    const updateItem = (idx, key, val) => {
+        const items = [...(data.items || [])]
+        items[idx] = { ...items[idx], [key]: val }
+        update('items', items)
+    }
+    const addItem = () => update('items', [...(data.items || []), { icon: 'star', title: '', description: '' }])
+    const removeItem = idx => update('items', data.items.filter((_, i) => i !== idx))
+
+    return (
+        <>
+            <Field label="Heading" value={data.heading} onChange={v => update('heading', v)} />
+            <div className="space-y-4 mt-4">
+                <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider">Features</label>
+                {data.items?.map((item, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-3">
+                        <div className="flex justify-between items-center">
+                            <span className="text-xs font-bold text-gray-400">Item {i + 1}</span>
+                            <button onClick={() => removeItem(i)} className="text-red-400 hover:text-red-600 transition-colors">
+                                <span className="material-symbols-outlined text-lg">delete</span>
+                            </button>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3">
+                            <Field label="Icon" value={item.icon} onChange={v => updateItem(i, 'icon', v)} />
+                            <Field label="Title" value={item.title} onChange={v => updateItem(i, 'title', v)} />
+                        </div>
+                        <TextArea label="Description" value={item.description} onChange={v => updateItem(i, 'description', v)} />
+                    </div>
+                ))}
+                <button onClick={addItem} className="text-sm font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1">
+                    <span className="material-symbols-outlined text-lg">add</span> Tambah Fitur
+                </button>
+            </div>
+        </>
+    )
+}
+
 function StoryEditor({ data, onChange }) {
     const update = (key, val) => onChange({ ...data, [key]: val })
     const updateItem = (idx, key, val) => {
@@ -387,6 +425,9 @@ function ContactEditor({ data, onChange }) {
                             >
                                 <option value="instagram">Instagram</option>
                                 <option value="tiktok">TikTok</option>
+                                <option value="twitter">X (Twitter)</option>
+                                <option value="facebook">Facebook</option>
+                                <option value="youtube">YouTube</option>
                             </select>
                         </div>
                         <Field label="Handle" value={s.handle} onChange={v => updateSocial(i, 'handle', v)} />
@@ -555,6 +596,7 @@ export default function AdminPage() {
         { key: 'theme', title: 'Tema & Warna', icon: 'palette', Editor: ThemeEditor },
         { key: 'navbar', title: 'Navigation Bar', icon: 'menu', Editor: NavbarEditor },
         { key: 'hero', title: 'Hero Section', icon: 'home', Editor: HeroEditor },
+        { key: 'valueProps', title: 'Kenapa EdamameQu', icon: 'verified', Editor: ValuePropsEditor },
         { key: 'story', title: 'Cerita Kami', icon: 'auto_stories', Editor: StoryEditor, link: '#story' },
         { key: 'products', title: 'Produk & Harga', icon: 'shopping_bag', Editor: ProductsEditor, link: '#products' },
         { key: 'nutrition', title: 'Nutrisi', icon: 'restaurant', Editor: NutritionEditor, link: '#nutrition' },
