@@ -1,6 +1,6 @@
 import StockRequestForm from './StockRequestForm'
 
-export default function Products({ data }) {
+export default function Products({ data, globalWhatsAppUrl }) {
     if (!data) return null
 
     return (
@@ -88,7 +88,7 @@ export default function Products({ data }) {
 
                         <a
                             className="inline-flex items-center justify-center gap-3 px-10 py-4 w-full max-w-lg mx-auto bg-white text-[#25D366] font-bold border-2 border-[#25D366] rounded-xl shadow-sm hover:bg-[#25D366] hover:text-white transition-all group"
-                            href={data.whatsappUrl}
+                            href={globalWhatsAppUrl || data.whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                         >

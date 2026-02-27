@@ -42,7 +42,7 @@ export default function LandingPage() {
                 <Hero data={content.hero} />
                 <ValueProps data={content.valueProps} />
                 <Story data={content.story} />
-                <Products data={content.products} />
+                <Products data={content.products} globalWhatsAppUrl={content.navbar?.whatsappUrl} />
                 <Nutrition data={content.nutrition} />
                 <Process data={content.process} />
                 <Gallery data={content.gallery} />

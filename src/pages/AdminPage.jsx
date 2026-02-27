@@ -245,71 +245,55 @@ function ProductsEditor({ data, onChange }) {
             <TextArea label="CTA Description" value={data.ctaDescription} onChange={v => update('ctaDescription', v)} />
 
             <div className="mt-6 p-4 border border-gray-200 rounded-xl bg-white space-y-4">
-                <h4 className="font-bold text-gray-800 text-sm">Pengaturan Tombol & Form Pemesanan</h4>
+                <h4 className="font-bold text-gray-800 text-sm">Pengaturan Form Pemesanan (Google Form)</h4>
 
-                <div>
-                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Tipe Tombol CTA</label>
-                    <select
-                        value={data.cta_type || "whatsapp"}
-                        onChange={e => update('cta_type', e.target.value)}
-                        className="admin-input"
-                    >
-                        <option value="whatsapp">Langsung ke WhatsApp</option>
-                        <option value="gform_prefill">Form Notifikasi (Google Form)</option>
-                    </select>
-                </div>
-
-                {data.cta_type === 'whatsapp' ? (
-                    <Field label="WhatsApp URL" value={data.whatsappUrl} onChange={v => update('whatsappUrl', v)} type="url" />
-                ) : (
-                    <div className="space-y-3 pt-2">
+                <div className="space-y-3 pt-2">
+                    <Field
+                        label="Google Form Base URL"
+                        value={data.gform_prefill_base_url}
+                        onChange={v => update('gform_prefill_base_url', v)}
+                        placeholder="Contoh: https://docs.google.com/forms/d/e/.../viewform?usp=pp_url"
+                        type="url"
+                    />
+                    <div className="grid grid-cols-2 gap-3 mb-3">
                         <Field
-                            label="Google Form Base URL"
-                            value={data.gform_prefill_base_url}
-                            onChange={v => update('gform_prefill_base_url', v)}
-                            placeholder="Contoh: https://docs.google.com/forms/d/e/.../viewform?usp=pp_url"
-                            type="url"
+                            label="Entry ID - Nama"
+                            value={data.gform_entry_name}
+                            onChange={v => update('gform_entry_name', v)}
+                            placeholder="entry.123456"
                         />
-                        <div className="grid grid-cols-2 gap-3 mb-3">
-                            <Field
-                                label="Entry ID - Nama"
-                                value={data.gform_entry_name}
-                                onChange={v => update('gform_entry_name', v)}
-                                placeholder="entry.123456"
-                            />
-                            <Field
-                                label="Entry ID - WhatsApp"
-                                value={data.gform_entry_phone}
-                                onChange={v => update('gform_entry_phone', v)}
-                                placeholder="entry.654321"
-                            />
-                        </div>
-                        <div className="grid grid-cols-2 gap-3 mb-3">
-                            <Field
-                                label="Entry ID - Alamat"
-                                value={data.gform_entry_address}
-                                onChange={v => update('gform_entry_address', v)}
-                                placeholder="entry.111111"
-                            />
-                            <Field
-                                label="Entry ID - Kenal EdamameQu"
-                                value={data.gform_entry_source}
-                                onChange={v => update('gform_entry_source', v)}
-                                placeholder="entry.222222"
-                            />
-                        </div>
                         <Field
-                            label="Entry ID - Pengetahuan Edamame"
-                            value={data.gform_entry_knowledge}
-                            onChange={v => update('gform_entry_knowledge', v)}
-                            placeholder="entry.333333"
+                            label="Entry ID - WhatsApp"
+                            value={data.gform_entry_phone}
+                            onChange={v => update('gform_entry_phone', v)}
+                            placeholder="entry.654321"
                         />
-                        <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">
-                            Pastikan Anda mendapatkan link <strong>"Dapatkan link yang sudah terisi" (Get pre-filled link)</strong> dari Google Form untuk mengetahui ID Entry masing-masing. <br />
-                            Catatan: Sistem akan <strong>mengirimkan data secara otomatis (langsung jadi Submit)</strong> di latar belakang tanpa mengalihkan pembeli ke halaman Google Form.
-                        </p>
                     </div>
-                )}
+                    <div className="grid grid-cols-2 gap-3 mb-3">
+                        <Field
+                            label="Entry ID - Alamat"
+                            value={data.gform_entry_address}
+                            onChange={v => update('gform_entry_address', v)}
+                            placeholder="entry.111111"
+                        />
+                        <Field
+                            label="Entry ID - Kenal EdamameQu"
+                            value={data.gform_entry_source}
+                            onChange={v => update('gform_entry_source', v)}
+                            placeholder="entry.222222"
+                        />
+                    </div>
+                    <Field
+                        label="Entry ID - Pengetahuan Edamame"
+                        value={data.gform_entry_knowledge}
+                        onChange={v => update('gform_entry_knowledge', v)}
+                        placeholder="entry.333333"
+                    />
+                    <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">
+                        Pastikan Anda mendapatkan link <strong>"Dapatkan link yang sudah terisi" (Get pre-filled link)</strong> dari Google Form untuk mengetahui ID Entry masing-masing. <br />
+                        Catatan: Pilihan tombol "Pesan via WhatsApp" akan menggunakan pengaturan URL WhatsApp dari menu <strong>Navigation Bar</strong>.
+                    </p>
+                </div>
             </div>
         </>
     )
