@@ -2,11 +2,15 @@ export async function submitGoogleForm(baseURL, entryName, entryPhone, nameValue
     if (!baseURL || !entryName || !entryPhone) return { success: false, error: 'Konfigurasi tidak lengkap' };
 
     try {
-        // Construct a clean URL without trailing parameters like ?usp=pp_url
-        const urlObj = new URL(baseURL);
-        urlObj.pathname = urlObj.pathname.replace(/\/viewform.*/, '/formResponse');
-        urlObj.search = '';
-        const targetUrl = urlObj.toString();
+        // Extract the core Google Forms URL format up to the Form ID
+        // Even if the user put /viev or /viewform at the end, this catches the ID
+        const match = baseURL.match(/(https:\/\/docs\.google\.com\/forms\/d\/e\/[a-zA-Z0-9_-]+)/);
+
+        if (!match) {
+            return { success: false, error: 'Format URL Google Form tidak valid. Pastikan itu link docs.google.com/forms/...' };
+        }
+
+        const targetUrl = `${match[1]}/formResponse`;
 
         // Google Forms accepts x-www-form-urlencoded
         const formData = new URLSearchParams();
