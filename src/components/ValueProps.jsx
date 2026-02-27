@@ -9,7 +9,7 @@ export default function ValueProps({ data }) {
             {/* Background Image Container */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
-                style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200")' }}
+                style={{ backgroundImage: `url("${data.image || 'https://images.unsplash.com/photo-1577413681498-5c3171305dfa?q=80&w=1200'}")` }}
             >
                 {/* Dark green overlay for readability */}
                 <div className="absolute inset-0 bg-[#0d1a0a]/85 backdrop-blur-sm" />
@@ -36,8 +36,8 @@ export default function ValueProps({ data }) {
                                 key={i}
                                 onClick={() => setActiveCard(isActive ? null : i)}
                                 className={`cursor-pointer p-8 backdrop-blur-md rounded-3xl border transition-all duration-500 ${isActive
-                                        ? 'border-[var(--color-primary)]/40 bg-white/10 -translate-y-2'
-                                        : 'bg-white/5 border-white/10 hover:bg-white/10'
+                                    ? 'border-[var(--color-primary)]/40 bg-white/10 -translate-y-2'
+                                    : 'bg-white/5 border-white/10 hover:bg-white/10'
                                     }`}
                             >
                                 <div className={`size-14 rounded-2xl flex items-center justify-center text-[#37ec13] mb-6 transition-colors duration-500 ${isActive ? 'bg-[#37ec13]/20' : 'bg-[#37ec13]/10'

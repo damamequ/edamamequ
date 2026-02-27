@@ -143,7 +143,8 @@ const defaultContent = {
                 title: "Siap Saji, Kapan Saja",
                 description: "Kemudahan premium untuk gaya hidup modern Anda yang aktif dan sehat."
             }
-        ]
+        ],
+        image: "https://images.unsplash.com/photo-1577413681498-5c3171305dfa?q=80&w=1200"
     }
 }
 

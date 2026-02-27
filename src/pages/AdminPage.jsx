@@ -145,6 +145,9 @@ function ValuePropsEditor({ data, onChange }) {
                     <span className="material-symbols-outlined text-lg">add</span> Tambah Fitur
                 </button>
             </div>
+            <div className="mt-6">
+                <FileUpload label="Background Image" value={data.image} onChange={v => update('image', v)} accept="image/*" folder="valueProps" />
+            </div>
         </>
     )
 }
@@ -267,7 +270,7 @@ function ProductsEditor({ data, onChange }) {
                             placeholder="Contoh: https://docs.google.com/forms/d/e/.../viewform?usp=pp_url"
                             type="url"
                         />
-                        <div className="grid grid-cols-2 gap-3">
+                        <div className="grid grid-cols-2 gap-3 mb-3">
                             <Field
                                 label="Entry ID - Nama"
                                 value={data.gform_entry_name}
@@ -281,6 +284,26 @@ function ProductsEditor({ data, onChange }) {
                                 placeholder="entry.654321"
                             />
                         </div>
+                        <div className="grid grid-cols-2 gap-3 mb-3">
+                            <Field
+                                label="Entry ID - Alamat"
+                                value={data.gform_entry_address}
+                                onChange={v => update('gform_entry_address', v)}
+                                placeholder="entry.111111"
+                            />
+                            <Field
+                                label="Entry ID - Kenal EdamameQu"
+                                value={data.gform_entry_source}
+                                onChange={v => update('gform_entry_source', v)}
+                                placeholder="entry.222222"
+                            />
+                        </div>
+                        <Field
+                            label="Entry ID - Pengetahuan Edamame"
+                            value={data.gform_entry_knowledge}
+                            onChange={v => update('gform_entry_knowledge', v)}
+                            placeholder="entry.333333"
+                        />
                         <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">
                             Pastikan Anda mendapatkan link <strong>"Dapatkan link yang sudah terisi" (Get pre-filled link)</strong> dari Google Form untuk mengetahui ID Entry masing-masing. <br />
                             Catatan: Sistem akan <strong>mengirimkan data secara otomatis (langsung jadi Submit)</strong> di latar belakang tanpa mengalihkan pembeli ke halaman Google Form.
