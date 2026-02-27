@@ -1,23 +1,26 @@
 import { useState } from 'react';
 import { submitGoogleForm } from '../utils/gform';
 
-export default function StockRequestForm({ baseURL, entryName, entryPhone }) {
+export default function StockRequestForm({ baseURL, entryName, entryPhone, entryAddress, entrySource, entryKnowledge }) {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [source, setSource] = useState('');
+    const [knowledge, setKnowledge] = useState('');
     const [status, setStatus] = useState('idle'); // idle, loading, success
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!name.trim() || !phone.trim()) {
-            alert('Mohon isi nama dan nomor WhatsApp Anda.');
+        if (!name.trim() || !phone.trim() || !address.trim() || !source.trim() || !knowledge.trim()) {
+            alert('Mohon isi semua data formulir.');
             return;
         }
 
         setStatus('loading');
 
         // Ensure configuration is present
-        if (!baseURL || !entryName || !entryPhone) {
+        if (!baseURL || !entryName || !entryPhone || !entryAddress || !entrySource || !entryKnowledge) {
             alert('Terjadi kesalahan konfigurasi. Silakan hubungi admin.');
             setStatus('idle');
             return;
@@ -27,8 +30,14 @@ export default function StockRequestForm({ baseURL, entryName, entryPhone }) {
             baseURL,
             entryName,
             entryPhone,
+            entryAddress,
+            entrySource,
+            entryKnowledge,
             name,
-            phone
+            phone,
+            address,
+            source,
+            knowledge
         );
 
         if (!result.success) {
@@ -40,6 +49,9 @@ export default function StockRequestForm({ baseURL, entryName, entryPhone }) {
         setStatus('success');
         setName('');
         setPhone('');
+        setAddress('');
+        setSource('');
+        setKnowledge('');
 
         // Revert back to idle after a reasonable time
         setTimeout(() => setStatus('idle'), 5000);
@@ -69,7 +81,7 @@ export default function StockRequestForm({ baseURL, entryName, entryPhone }) {
     }
 
     // Fallback if config is missing -> disable form
-    const isDisabled = !baseURL || !entryName || !entryPhone;
+    const isDisabled = !baseURL || !entryName || !entryPhone || !entryAddress || !entrySource || !entryKnowledge;
 
     return (
         <form onSubmit={handleSubmit} className="bg-white rounded-[2rem] border border-[var(--color-primary)]/10 shadow-sm p-6 md:p-8 mt-6 max-w-lg mx-auto text-left">
@@ -101,6 +113,45 @@ export default function StockRequestForm({ baseURL, entryName, entryPhone }) {
                         onChange={(e) => setPhone(e.target.value)}
                         className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#166534] focus:border-transparent transition-all bg-gray-50/50"
                         placeholder="Contoh: 08123456789"
+                        required
+                        disabled={isDisabled}
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2" htmlFor="address">Alamat Lengkap</label>
+                    <textarea
+                        id="address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#166534] focus:border-transparent transition-all bg-gray-50/50"
+                        placeholder="Contoh: Jl. Sudirman No. 1..."
+                        rows="2"
+                        required
+                        disabled={isDisabled}
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2" htmlFor="source">Kenal edamameQu dari mana?</label>
+                    <input
+                        type="text"
+                        id="source"
+                        value={source}
+                        onChange={(e) => setSource(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#166534] focus:border-transparent transition-all bg-gray-50/50"
+                        placeholder="Contoh: Instagram, Teman, Iklan..."
+                        required
+                        disabled={isDisabled}
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2" htmlFor="knowledge">Apa yang diketahui tentang edamame?</label>
+                    <textarea
+                        id="knowledge"
+                        value={knowledge}
+                        onChange={(e) => setKnowledge(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#166534] focus:border-transparent transition-all bg-gray-50/50"
+                        placeholder="Contoh: Kedelai jepang yang sehat..."
+                        rows="2"
                         required
                         disabled={isDisabled}
                     />

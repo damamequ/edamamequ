@@ -1,5 +1,5 @@
-export async function submitGoogleForm(baseURL, entryName, entryPhone, nameValue, phoneValue) {
-    if (!baseURL || !entryName || !entryPhone) return { success: false, error: 'Konfigurasi tidak lengkap' };
+export async function submitGoogleForm(baseURL, entryName, entryPhone, entryAddress, entrySource, entryKnowledge, nameValue, phoneValue, addressValue, sourceValue, knowledgeValue) {
+    if (!baseURL || !entryName || !entryPhone || !entryAddress || !entrySource || !entryKnowledge) return { success: false, error: 'Konfigurasi tidak lengkap' };
 
     try {
         // Extract the core Google Forms URL format up to the Form ID
@@ -16,6 +16,9 @@ export async function submitGoogleForm(baseURL, entryName, entryPhone, nameValue
         const formData = new URLSearchParams();
         formData.append(entryName.trim(), nameValue);
         formData.append(entryPhone.trim(), phoneValue);
+        formData.append(entryAddress.trim(), addressValue);
+        formData.append(entrySource.trim(), sourceValue);
+        formData.append(entryKnowledge.trim(), knowledgeValue);
         // We must append this so it processes as a submitted form
         formData.append('submit', 'Submit');
 
