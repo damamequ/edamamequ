@@ -5,7 +5,7 @@ export default function ValueProps({ data }) {
     if (!data) return null;
 
     return (
-        <section className="relative overflow-hidden py-24">
+        <section className="relative overflow-hidden py-32 md:py-48 min-h-screen flex items-center justify-center">
             {/* Background Image Container */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
@@ -15,7 +15,7 @@ export default function ValueProps({ data }) {
                 <div className="absolute inset-0 bg-[#0d1a0a]/85 backdrop-blur-sm" />
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
+            <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
                         {data.heading}
@@ -23,7 +23,7 @@ export default function ValueProps({ data }) {
                     <div className="w-20 h-1.5 bg-[#37ec13] mx-auto rounded-full" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
                     {data.items?.map((item, i) => {
                         // Highlight logic for description: we can make keywords semi-bold
                         // Based on existing items like "Kualitas Seleksi Sultan", "Kesegaran Kebun Jogja"
