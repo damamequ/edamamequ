@@ -1,4 +1,7 @@
+import { useState } from 'react';
+
 export default function ValueProps({ data }) {
+    const [activeCard, setActiveCard] = useState(null);
     if (!data) return null;
 
     return (
@@ -26,15 +29,23 @@ export default function ValueProps({ data }) {
                         // Based on existing items like "Kualitas Seleksi Sultan", "Kesegaran Kebun Jogja"
                         const parts = item.description.split(/(terbaik|Jogja|Non-GMO|premium)/i);
 
+                        const isActive = activeCard === i;
+
                         return (
                             <div
                                 key={i}
-                                className="group p-8 bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 hover:border-[var(--color-primary)]/40 hover:bg-white/10 transition-all duration-500 hover:-translate-y-2"
+                                onClick={() => setActiveCard(isActive ? null : i)}
+                                className={`cursor-pointer p-8 backdrop-blur-md rounded-3xl border transition-all duration-500 ${isActive
+                                        ? 'border-[var(--color-primary)]/40 bg-white/10 -translate-y-2'
+                                        : 'bg-white/5 border-white/10 hover:bg-white/10'
+                                    }`}
                             >
-                                <div className="size-14 rounded-2xl bg-[#37ec13]/10 flex items-center justify-center text-[#37ec13] mb-6 group-hover:bg-[#37ec13]/20 transition-colors duration-500">
+                                <div className={`size-14 rounded-2xl flex items-center justify-center text-[#37ec13] mb-6 transition-colors duration-500 ${isActive ? 'bg-[#37ec13]/20' : 'bg-[#37ec13]/10'
+                                    }`}>
                                     <span className="material-symbols-outlined text-3xl">{item.icon}</span>
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                                <h3 className={`text-xl font-bold mb-3 transition-colors ${isActive ? 'text-[var(--color-primary)]' : 'text-white'
+                                    }`}>
                                     {item.title}
                                 </h3>
                                 <p className="text-white/70 text-sm leading-relaxed">
