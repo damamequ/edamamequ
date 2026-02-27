@@ -194,7 +194,7 @@ function ProductsEditor({ data, onChange }) {
         items[idx] = { ...items[idx], [key]: val }
         update('items', items)
     }
-    const addItem = () => update('items', [...(data.items || []), { name: '', price: '', bestSeller: false }])
+    const addItem = () => update('items', [...(data.items || []), { name: '', price: '', bestSeller: false, image: '' }])
     const removeItem = idx => update('items', data.items.filter((_, i) => i !== idx))
 
     return (
@@ -212,10 +212,17 @@ function ProductsEditor({ data, onChange }) {
                             <span className="material-symbols-outlined text-lg">delete</span>
                         </button>
                     </div>
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-3 mb-3">
                         <Field label="Name" value={item.name} onChange={v => updateItem(i, 'name', v)} />
                         <Field label="Price" value={item.price} onChange={v => updateItem(i, 'price', v)} />
                     </div>
+                    <FileUpload
+                        label="Product Image"
+                        value={item.image}
+                        onChange={v => updateItem(i, 'image', v)}
+                        accept="image/*"
+                        folder="products"
+                    />
                     <label className="flex items-center gap-2 text-sm">
                         <input
                             type="checkbox"
@@ -233,7 +240,54 @@ function ProductsEditor({ data, onChange }) {
 
             <Field label="CTA Heading" value={data.ctaHeading} onChange={v => update('ctaHeading', v)} />
             <TextArea label="CTA Description" value={data.ctaDescription} onChange={v => update('ctaDescription', v)} />
-            <Field label="WhatsApp URL" value={data.whatsappUrl} onChange={v => update('whatsappUrl', v)} type="url" />
+
+            <div className="mt-6 p-4 border border-gray-200 rounded-xl bg-white space-y-4">
+                <h4 className="font-bold text-gray-800 text-sm">Pengaturan Tombol & Form Pemesanan</h4>
+
+                <div>
+                    <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Tipe Tombol CTA</label>
+                    <select
+                        value={data.cta_type || "whatsapp"}
+                        onChange={e => update('cta_type', e.target.value)}
+                        className="admin-input"
+                    >
+                        <option value="whatsapp">Langsung ke WhatsApp</option>
+                        <option value="gform_prefill">Form Notifikasi (Google Form)</option>
+                    </select>
+                </div>
+
+                {data.cta_type === 'whatsapp' ? (
+                    <Field label="WhatsApp URL" value={data.whatsappUrl} onChange={v => update('whatsappUrl', v)} type="url" />
+                ) : (
+                    <div className="space-y-3 pt-2">
+                        <Field
+                            label="Google Form Base URL"
+                            value={data.gform_prefill_base_url}
+                            onChange={v => update('gform_prefill_base_url', v)}
+                            placeholder="Contoh: https://docs.google.com/forms/d/e/.../viewform?usp=pp_url"
+                            type="url"
+                        />
+                        <div className="grid grid-cols-2 gap-3">
+                            <Field
+                                label="Entry ID - Nama"
+                                value={data.gform_entry_name}
+                                onChange={v => update('gform_entry_name', v)}
+                                placeholder="entry.123456"
+                            />
+                            <Field
+                                label="Entry ID - WhatsApp"
+                                value={data.gform_entry_phone}
+                                onChange={v => update('gform_entry_phone', v)}
+                                placeholder="entry.654321"
+                            />
+                        </div>
+                        <p className="text-[10px] text-gray-500 mt-1 leading-relaxed">
+                            Pastikan Anda mendapatkan link <strong>"Dapatkan link yang sudah terisi" (Get pre-filled link)</strong> dari Google Form untuk mengetahui ID Entry masing-masing. <br />
+                            Catatan: Sistem akan <strong>mengirimkan data secara otomatis (langsung jadi Submit)</strong> di latar belakang tanpa mengalihkan pembeli ke halaman Google Form.
+                        </p>
+                    </div>
+                )}
+            </div>
         </>
     )
 }

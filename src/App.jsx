@@ -28,6 +28,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/customers" element={<LandingPage />} />
         <Route path="/login" element={<LoginRoute />} />
         <Route path="/admin" element={
           <ProtectedRoute>

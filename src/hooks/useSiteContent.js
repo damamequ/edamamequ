@@ -12,7 +12,7 @@ const defaultContent = {
         description: "Kedelai Sultan segar, organik, dan berkelanjutan yang siap menemani hari-hari Anda di Jogja. Rasakan kualitas Fresh & Premium yang kami persembahkan khusus untuk Anda.",
         ctaPrimary: "Lihat Pilihan",
         ctaSecondary: "Metode Kami",
-        image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA77tRG9vQrCVmAQShVVwWoZ_nuUJ6tIf5g3jwB2qX4hW8rnc2gxaIdvcVd7Ib62Sv4OBfVZhW0KDMoGGSRFfLM2eV2RVr9gLwa1ulkQPf68zX5LVQKNMX13Y-UdS3tMgnetNoqoUSEIcclNH5AfFvgJdkvo2L5tFXuwo_WYn-GoxocsLSiH8ACnoF5WFuPAl7ufIG-pvYMW9HB6WfmpoIrgTVsXSDFr9e213Tdw9gcHcTLeb_OwmDkhCSwSUjQHeOFvbeGkd3vjfiK"
+        image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200"
     },
     story: {
         heading: "Kisah Sang Kedelai Sultan",
@@ -27,15 +27,19 @@ const defaultContent = {
         badge: "Fresh & Premium Edition",
         description: "Kedelai Sultan segar berkualitas premium langsung dari petani lokal Jogja.",
         items: [
-            { name: "500 Gram", price: "Rp 15.000", bestSeller: false },
-            { name: "1 Kilogram", price: "Rp 28.000", bestSeller: true },
-            { name: "2 Kilogram", price: "Rp 55.000", bestSeller: false },
-            { name: "3 Kilogram", price: "Rp 80.000", bestSeller: false },
-            { name: "4 Kilogram", price: "Rp 105.000", bestSeller: false },
-            { name: "5 Kilogram", price: "Rp 130.000", bestSeller: false }
+            { name: "500 Gram", price: "Rp 15.000", bestSeller: false, image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=400&auto=format&fit=crop" },
+            { name: "1 Kilogram", price: "Rp 28.000", bestSeller: true, image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=400&auto=format&fit=crop" },
+            { name: "2 Kilogram", price: "Rp 55.000", bestSeller: false, image: "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4da?q=80&w=400&auto=format&fit=crop" },
+            { name: "3 Kilogram", price: "Rp 80.000", bestSeller: false, image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&auto=format&fit=crop" },
+            { name: "4 Kilogram", price: "Rp 105.000", bestSeller: false, image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=400&auto=format&fit=crop" },
+            { name: "5 Kilogram", price: "Rp 130.000", bestSeller: false, image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=400&auto=format&fit=crop" }
         ],
         ctaHeading: "Siap merasakan kebaikannya?",
         ctaDescription: "Cukup ketuk tombol di bawah untuk mengirim pesan ke tim kami dan memesan langsung via WhatsApp.",
+        cta_type: "gform_prefill",
+        gform_prefill_base_url: "https://docs.google.com/forms/d/e/1FAIpQLScX_EXAMPLE/viewform?usp=pp_url",
+        gform_entry_name: "entry.111111",
+        gform_entry_phone: "entry.222222",
         whatsappUrl: "https://wa.me/yournumber"
     },
     nutrition: {
@@ -68,13 +72,13 @@ const defaultContent = {
         videoUrl: "",
         images: [
             "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200",
+            "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=1200",
+            "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4da?q=80&w=1200",
+            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1200",
+            "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1200",
             "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=1200",
             "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200",
-            "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1200",
-            "https://images.unsplash.com/photo-1505935428862-770b6f24f629?q=80&w=1200",
-            "https://images.unsplash.com/photo-1628187886470-394dd546ec84?q=80&w=1200",
-            "https://images.unsplash.com/photo-1592394533824-9440e5d68530?q=80&w=1200",
-            "https://images.unsplash.com/photo-1615486171448-4fd3bcfedbeb?q=80&w=1200"
+            "https://images.unsplash.com/photo-1628187886470-394dd546ec84?q=80&w=1200"
         ]
     },
     contact: {
