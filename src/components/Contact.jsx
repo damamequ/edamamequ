@@ -40,27 +40,34 @@ export default function Contact({ data }) {
     if (!data) return null
 
     return (
-        <section className="py-24 bg-[var(--color-accent-dark)] text-white">
-            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <section className="relative py-24 text-white overflow-hidden">
+            {/* Background image with dark overlay */}
+            <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1611810174991-5cdd99a2c6b2?q=80&w=1600')` }}
+            />
+            <div className="absolute inset-0 bg-[#0d1a0a]/88" />
+
+            <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 relative z-10">
                 <div>
                     <h2 className="text-4xl font-bold mb-8">{data.heading}</h2>
-                    <p className="text-white/60 mb-12">{data.description}</p>
+                    <p className="text-white/50 mb-12 leading-relaxed">{data.description}</p>
                     <div className="space-y-6">
                         <a className="flex items-center gap-4 text-lg hover:text-[var(--color-primary)] transition-colors" href={`mailto:${data.email}`}>
-                            <span className="material-symbols-outlined">mail</span>
+                            <span className="material-symbols-outlined text-[var(--color-primary)]">mail</span>
                             {data.email}
                         </a>
                         <div className="flex items-center gap-4 text-lg">
-                            <span className="material-symbols-outlined">location_on</span>
+                            <span className="material-symbols-outlined text-[var(--color-primary)]">location_on</span>
                             {data.address}
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <div className="bg-white/5 p-10 rounded-3xl border border-white/10">
+                    <div className="bg-white/[0.04] p-10 rounded-2xl border border-white/10">
                         <h3 className="text-2xl font-bold mb-6">{data.socialHeading}</h3>
-                        <p className="text-white/60 mb-8">{data.socialDescription}</p>
+                        <p className="text-white/50 mb-8 leading-relaxed">{data.socialDescription}</p>
 
                         <div className="flex gap-4 mb-12">
                             {data.socials?.map((social, i) => {
@@ -68,7 +75,7 @@ export default function Contact({ data }) {
                                 return (
                                     <a
                                         key={i}
-                                        className="size-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[var(--color-accent-dark)] transition-all"
+                                        className="size-12 rounded-full border border-white/15 flex items-center justify-center hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-[var(--color-accent-dark)] transition-all"
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -79,7 +86,7 @@ export default function Contact({ data }) {
                             })}
                         </div>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             {data.socials?.map((social, i) => {
                                 const Icon = socialIcons[social.platform]
                                 return (
@@ -88,9 +95,9 @@ export default function Contact({ data }) {
                                         href={social.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="flex items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 p-4 rounded-xl transition-all group"
+                                        className="flex items-center gap-4 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 p-4 rounded-xl transition-all group"
                                     >
-                                        <div className="size-10 rounded-full bg-white text-[var(--color-accent-dark)] flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <div className="size-10 rounded-full bg-[var(--color-primary)]/15 text-[var(--color-primary)] flex items-center justify-center group-hover:bg-[var(--color-primary)] group-hover:text-[var(--color-accent-dark)] transition-all">
                                             {Icon && <Icon />}
                                         </div>
                                         <span className="font-bold">{social.handle}</span>

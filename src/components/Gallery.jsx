@@ -4,7 +4,7 @@ export default function Gallery({ data }) {
     const images = data.images
 
     return (
-        <section className="py-24 relative overflow-hidden bg-[var(--color-background-light)]">
+        <section className="py-24 relative overflow-hidden bg-[#0d1a0a]">
             {/* Video Background */}
             {data.videoUrl && (
                 <div className="absolute inset-0 z-0">
@@ -17,30 +17,28 @@ export default function Gallery({ data }) {
                         className="w-full h-full object-cover"
                     />
                     {/* Dark Overlay */}
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+                    <div className="absolute inset-0 bg-black/60" />
                 </div>
             )}
 
             <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[400px]">
                     {images.map((imgUrl, idx) => {
-                        // Create a masonry-like feel by making some items larger
                         const isLarge = idx % 5 === 0;
                         const isTall = idx % 3 === 0 && !isLarge;
 
                         return (
                             <div
                                 key={idx}
-                                className={`relative rounded-[2rem] overflow-hidden shadow-xl group ${isLarge ? 'md:col-span-2 md:row-span-2' : ''} ${isTall ? 'lg:row-span-2' : ''}`}
+                                className={`relative rounded-2xl overflow-hidden group ${isLarge ? 'md:col-span-2 md:row-span-2' : ''} ${isTall ? 'lg:row-span-2' : ''}`}
                             >
                                 <img
                                     src={imgUrl}
                                     alt={`Gallery image ${idx + 1}`}
-                                    className="w-full h-full object-cover transition-all duration-700 ease-out opacity-90 group-hover:opacity-100 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-all duration-700 ease-out opacity-90 group-hover:opacity-100 group-hover:scale-105"
                                     loading="lazy"
                                 />
-                                {/* Optional subtle vignette for deeper traditional feel */}
-                                <div className="absolute inset-0 bg-black/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
+                                <div className="absolute inset-0 bg-black/15 opacity-100 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
                             </div>
                         )
                     })}

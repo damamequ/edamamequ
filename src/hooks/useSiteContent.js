@@ -12,7 +12,7 @@ const defaultContent = {
         description: "Kedelai Sultan segar, organik, dan berkelanjutan yang siap menemani hari-hari Anda di Jogja. Rasakan kualitas Fresh & Premium yang kami persembahkan khusus untuk Anda.",
         ctaPrimary: "Lihat Pilihan",
         ctaSecondary: "Metode Kami",
-        image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200"
+        image: "https://plus.unsplash.com/premium_photo-1666318300348-a4d0226d81ad?q=80&w=1200"
     },
     story: {
         heading: "Kisah Sang Kedelai Sultan",
@@ -27,12 +27,12 @@ const defaultContent = {
         badge: "Fresh & Premium Edition",
         description: "Kedelai Sultan segar berkualitas premium langsung dari petani lokal Jogja.",
         items: [
-            { name: "500 Gram", price: "Rp 15.000", bestSeller: false, image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=400&auto=format&fit=crop" },
-            { name: "1 Kilogram", price: "Rp 28.000", bestSeller: true, image: "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=400&auto=format&fit=crop" },
-            { name: "2 Kilogram", price: "Rp 55.000", bestSeller: false, image: "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4da?q=80&w=400&auto=format&fit=crop" },
-            { name: "3 Kilogram", price: "Rp 80.000", bestSeller: false, image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&auto=format&fit=crop" },
-            { name: "4 Kilogram", price: "Rp 105.000", bestSeller: false, image: "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=400&auto=format&fit=crop" },
-            { name: "5 Kilogram", price: "Rp 130.000", bestSeller: false, image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=400&auto=format&fit=crop" }
+            { name: "500 Gram", price: "Rp 15.000", bestSeller: false, image: "https://plus.unsplash.com/premium_photo-1666318300348-a4d0226d81ad?q=80&w=400&auto=format&fit=crop" },
+            { name: "1 Kilogram", price: "Rp 28.000", bestSeller: true, image: "https://images.unsplash.com/photo-1649257171206-37625b1f3b2f?q=80&w=400&auto=format&fit=crop" },
+            { name: "2 Kilogram", price: "Rp 55.000", bestSeller: false, image: "https://images.unsplash.com/photo-1563898655817-170c8a11efdf?q=80&w=400&auto=format&fit=crop" },
+            { name: "3 Kilogram", price: "Rp 80.000", bestSeller: false, image: "https://plus.unsplash.com/premium_photo-1666318300303-fa93066b7f88?q=80&w=400&auto=format&fit=crop" },
+            { name: "4 Kilogram", price: "Rp 105.000", bestSeller: false, image: "https://images.unsplash.com/photo-1730596140741-6cc4963ad816?q=80&w=400&auto=format&fit=crop" },
+            { name: "5 Kilogram", price: "Rp 130.000", bestSeller: false, image: "https://images.unsplash.com/photo-1611810174991-5cdd99a2c6b2?q=80&w=400&auto=format&fit=crop" }
         ],
         ctaHeading: "Siap merasakan kebaikannya?",
         ctaDescription: "Cukup ketuk tombol di bawah untuk mengirim pesan ke tim kami dan memesan langsung via WhatsApp.",
@@ -71,14 +71,14 @@ const defaultContent = {
     gallery: {
         videoUrl: "",
         images: [
-            "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=1200",
-            "https://images.unsplash.com/photo-1564834724105-918b73d1b9e0?q=80&w=1200",
-            "https://plus.unsplash.com/premium_photo-1664472637341-3ec829d1f4da?q=80&w=1200",
-            "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=1200",
-            "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?q=80&w=1200",
-            "https://images.unsplash.com/photo-1518977676601-b53f82aba655?q=80&w=1200",
-            "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200",
-            "https://images.unsplash.com/photo-1628187886470-394dd546ec84?q=80&w=1200"
+            "https://plus.unsplash.com/premium_photo-1666318300348-a4d0226d81ad?q=80&w=1200",
+            "https://images.unsplash.com/photo-1649257171206-37625b1f3b2f?q=80&w=1200",
+            "https://images.unsplash.com/photo-1563898655817-170c8a11efdf?q=80&w=1200",
+            "https://plus.unsplash.com/premium_photo-1666318300303-fa93066b7f88?q=80&w=1200",
+            "https://images.unsplash.com/photo-1730596140741-6cc4963ad816?q=80&w=1200",
+            "https://images.unsplash.com/photo-1611810174991-5cdd99a2c6b2?q=80&w=1200",
+            "https://plus.unsplash.com/premium_photo-1670333291543-a374f1f466cb?q=80&w=1200",
+            "https://images.unsplash.com/photo-1597958792579-bd3517df6399?q=80&w=1200"
         ]
     },
     contact: {
@@ -115,7 +115,7 @@ const defaultContent = {
         whatsappUrl: "https://wa.me/yournumber"
     },
     theme: {
-        primary: "#37ec13",
+        primary: "#4ade80",
         backgroundLight: "#f6f8f6",
         backgroundDark: "#132210",
         accentDark: "#0d1a0a"
@@ -144,7 +144,7 @@ const defaultContent = {
                 description: "Kemudahan premium untuk gaya hidup modern Anda yang aktif dan sehat."
             }
         ],
-        image: "https://images.unsplash.com/photo-1577413681498-5c3171305dfa?q=80&w=1200"
+        image: "https://plus.unsplash.com/premium_photo-1670333291543-a374f1f466cb?q=80&w=1200"
     }
 }
 

@@ -11,8 +11,8 @@ export default function ValueProps({ data }) {
                 className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
                 style={{ backgroundImage: `url("${data.image || 'https://images.unsplash.com/photo-1577413681498-5c3171305dfa?q=80&w=1200'}")` }}
             >
-                {/* Dark green overlay for readability */}
-                <div className="absolute inset-0 bg-[#0d1a0a]/85 backdrop-blur-sm" />
+                {/* Dark overlay – no blur */}
+                <div className="absolute inset-0 bg-[#0d1a0a]/80" />
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -20,38 +20,35 @@ export default function ValueProps({ data }) {
                     <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
                         {data.heading}
                     </h2>
-                    <div className="w-20 h-1.5 bg-[#37ec13] mx-auto rounded-full" />
+                    <div className="w-20 h-1 bg-[var(--color-primary)]/60 mx-auto rounded-full" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
                     {data.items?.map((item, i) => {
-                        // Highlight logic for description: we can make keywords semi-bold
-                        // Based on existing items like "Kualitas Seleksi Sultan", "Kesegaran Kebun Jogja"
                         const parts = item.description.split(/(terbaik|Jogja|Non-GMO|premium)/i);
-
                         const isActive = activeCard === i;
 
                         return (
                             <div
                                 key={i}
                                 onClick={() => setActiveCard(isActive ? null : i)}
-                                className={`cursor-pointer p-8 backdrop-blur-md rounded-3xl border transition-all duration-500 ${isActive
-                                    ? 'border-[var(--color-primary)]/40 bg-white/10 -translate-y-2'
-                                    : 'bg-white/5 border-white/10 hover:bg-white/10'
+                                className={`cursor-pointer p-8 rounded-2xl transition-all duration-500 ${isActive
+                                    ? 'bg-white/10 -translate-y-2 shadow-lg shadow-[var(--color-primary)]/5'
+                                    : 'bg-white/[0.03] hover:bg-white/[0.07]'
                                     }`}
                             >
-                                <div className={`size-14 rounded-2xl flex items-center justify-center text-[#37ec13] mb-6 transition-colors duration-500 ${isActive ? 'bg-[#37ec13]/20' : 'bg-[#37ec13]/10'
-                                    }`}>
-                                    <span className="material-symbols-outlined text-3xl">{item.icon}</span>
-                                </div>
-                                <h3 className={`text-xl font-bold mb-3 transition-colors ${isActive ? 'text-[var(--color-primary)]' : 'text-white'
+                                {/* Standalone icon — no background shape */}
+                                <span className={`material-symbols-outlined text-4xl mb-6 block transition-colors duration-500 ${isActive ? 'text-[var(--color-primary)]' : 'text-[var(--color-primary)]/70'}`}>
+                                    {item.icon}
+                                </span>
+                                <h3 className={`text-lg font-bold mb-3 transition-colors duration-300 ${isActive ? 'text-[var(--color-primary)]' : 'text-white'
                                     }`}>
                                     {item.title}
                                 </h3>
-                                <p className="text-white/70 text-sm leading-relaxed">
+                                <p className="text-white/60 text-sm leading-relaxed">
                                     {parts.map((part, index) =>
                                         /terbaik|Jogja|Non-GMO|premium/i.test(part) ? (
-                                            <span key={index} className="text-white font-semibold">{part}</span>
+                                            <span key={index} className="text-white/90 font-semibold">{part}</span>
                                         ) : (
                                             part
                                         )
