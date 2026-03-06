@@ -10,18 +10,16 @@ export default function Process({ data }) {
                 </div>
 
                 <div className="relative">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative z-10">
+                    <div className="grid grid-cols-2 gap-12 max-w-4xl mx-auto relative z-10">
                         {data.steps?.map((step, i) => (
-                            <div key={i} className="flex items-start gap-4 group">
-                                {/* Icon – left side */}
-                                <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                                    {step.icon}
-                                </span>
-                                {/* Text – right side */}
-                                <div>
-                                    <h4 className="text-xl font-bold mb-2 text-[var(--color-accent-dark)]">{step.title}</h4>
-                                    <p className="text-sm text-[var(--color-accent-dark)]/60 leading-relaxed">{step.description}</p>
+                            <div key={i} className="text-center group">
+                                <div className="flex items-center justify-center mx-auto mb-6">
+                                    <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300">
+                                        {step.icon}
+                                    </span>
                                 </div>
+                                <h4 className="text-xl font-bold mb-3 text-[var(--color-accent-dark)]">{step.title}</h4>
+                                <p className="text-sm text-[var(--color-accent-dark)]/60 leading-relaxed">{step.description}</p>
                             </div>
                         ))}
                     </div>
