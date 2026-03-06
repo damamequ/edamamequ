@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 export default function ValueProps({ data }) {
-    const [activeCard, setActiveCard] = useState(null);
     if (!data) return null;
 
     return (
@@ -26,23 +23,14 @@ export default function ValueProps({ data }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
                     {data.items?.map((item, i) => {
                         const parts = item.description.split(/(terbaik|Jogja|Non-GMO|premium)/i);
-                        const isActive = activeCard === i;
 
                         return (
-                            <div
-                                key={i}
-                                onClick={() => setActiveCard(isActive ? null : i)}
-                                className={`cursor-pointer p-8 rounded-2xl transition-all duration-500 ${isActive
-                                    ? 'bg-white/10 -translate-y-2 shadow-lg shadow-[var(--color-primary)]/5'
-                                    : 'bg-white/[0.03] hover:bg-white/[0.07]'
-                                    }`}
-                            >
+                            <div key={i} className="p-8">
                                 {/* Standalone icon — no background shape */}
-                                <span className={`material-symbols-outlined text-4xl mb-6 block transition-colors duration-500 ${isActive ? 'text-[var(--color-primary)]' : 'text-[var(--color-primary)]/70'}`}>
+                                <span className="material-symbols-outlined text-4xl mb-6 block text-[var(--color-primary)]/70">
                                     {item.icon}
                                 </span>
-                                <h3 className={`text-lg font-bold mb-3 transition-colors duration-300 ${isActive ? 'text-[var(--color-primary)]' : 'text-white'
-                                    }`}>
+                                <h3 className="text-lg font-bold mb-3 text-white">
                                     {item.title}
                                 </h3>
                                 <p className="text-white/60 text-sm leading-relaxed">
