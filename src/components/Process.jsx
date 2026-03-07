@@ -2,7 +2,7 @@ export default function Process({ data }) {
     if (!data) return null
 
     return (
-        <section className="min-h-screen flex items-center py-24 bg-[#f0fdf4]" id="process">
+        <section className="min-h-screen flex items-center py-24 bg-[#92c939]" id="process">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <h2 className="text-4xl font-bold mb-6 text-[var(--color-accent-dark)]">{data.heading}</h2>
@@ -14,7 +14,7 @@ export default function Process({ data }) {
                         {data.steps?.map((step, i) => (
                             <div key={i} className="text-center group">
                                 <div className="flex items-center justify-center mx-auto mb-6">
-                                    <span className="material-symbols-outlined text-5xl text-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300">
+                                    <span className="material-symbols-outlined text-5xl text-black group-hover:scale-110 transition-transform duration-300">
                                         {step.icon}
                                     </span>
                                 </div>
